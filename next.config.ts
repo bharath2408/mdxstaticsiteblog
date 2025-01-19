@@ -1,14 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  output: "export", // Enable static exports
-  basePath: process.env.NODE_ENV === "production" ? "/mdxstaticsiteblog" : "", // Replace <repository-name> with your repo name
+  output: "export",
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: true,
   },
-  // Disable trailing slashes
-  trailingSlash: false,
+  distDir: "out",
 };
 
 export default nextConfig;
