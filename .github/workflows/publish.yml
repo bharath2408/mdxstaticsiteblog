@@ -31,23 +31,18 @@ jobs:
           static_site_generator: next
 
       - name: Build with Next.js 🏗️
-        run: npx next build
-
-      - name: List directories 📂
         run: |
-          echo "Current directory:"
-          pwd
-          echo "\nDirectory contents:"
-          ls -la
-          echo "\nContents of .next (if exists):"
-          ls -la .next || echo ".next directory not found"
-          echo "\nContents of out (if exists):"
-          ls -la out || echo "out directory not found"
+          npx next build
+          # Ensure the out directory exists and copy .nojekyll
+          touch out/.nojekyll
+
+      - name: List build output
+        run: ls -la out/
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .next/
+          path: out
 
   deploy:
     environment:

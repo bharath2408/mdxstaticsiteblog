@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // Ensure trailing slashes for GitHub Pages compatibility
+  trailingSlash: true,
+  // This will ensure all paths are treated correctly
+  assetPrefix: "./",
 };
 
 export default nextConfig;
