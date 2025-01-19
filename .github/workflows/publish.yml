@@ -31,26 +31,24 @@ jobs:
           static_site_generator: next
 
       - name: Build with Next.js 🏗️
-        run: npx next build
-
-      - name: Create .nojekyll file
         run: |
-          mkdir -p out
+          npx next build
+          # Move index to root if in a subdirectory
+          if [ -f "out/_next/index.html" ]; then
+            mv out/_next/index.html out/index.html
+          fi
+          # Create .nojekyll file
           touch out/.nojekyll
 
-      - name: List build output
+      - name: Debug directory structure
         run: |
-          echo "Contents of project root:"
-          ls -la
-          echo "\nContents of out directory (if exists):"
-          ls -la out || echo "out directory not found"
-          echo "\nContents of .next directory (if exists):"
-          ls -la .next || echo ".next directory not found"
+          echo "Contents of out directory:"
+          ls -R out/
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .next/
+          path: out
 
   deploy:
     environment:
