@@ -200,7 +200,7 @@ const DocSearch = () => {
                     </div>
                   ) : query ? (
                     <div className="p-4 text-sm text-center text-gray-500 dark:text-gray-400">
-                      No results found for "{query}"
+                      No results found for &quot;{query}&quot;
                     </div>
                   ) : (
                     <div className="p-4 text-sm text-center text-gray-500 dark:text-gray-400">
