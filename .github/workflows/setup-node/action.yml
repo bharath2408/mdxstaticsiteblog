@@ -1,5 +1,6 @@
 name: setup-node
 description: "Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧"
+
 runs:
   using: "composite"
   steps:
@@ -7,15 +8,26 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version: 20
+        cache: "npm" # Enable built-in npm caching
 
     - name: Cache dependencies ⚡
       id: cache_dependencies
       uses: actions/cache@v3
       with:
-        path: node_modules
-        key: node-modules-${{ hashFiles('package-lock.json') }}
+        path: |
+          node_modules
+          .next/cache  # Cache Next.js build cache as well
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
 
     - name: Install dependencies 🔧
       shell: bash
       if: steps.cache_dependencies.outputs.cache-hit != 'true'
-      run: npm ci
+      run: |
+        npm ci
+        # Verify node_modules exists after install
+        if [ ! -d "node_modules" ]; then
+          echo "Error: node_modules directory not found after npm ci"
+          exit 1
+        fi

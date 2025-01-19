@@ -36,7 +36,7 @@ jobs:
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .next/ # Remove the leading slash
+          path: out/ # Changed from .next/ to out/
 
   deploy:
     environment:
