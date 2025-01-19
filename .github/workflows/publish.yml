@@ -30,30 +30,18 @@ jobs:
         with:
           static_site_generator: next
 
+      - name: Create .nojekyll in public directory
+        run: |
+          mkdir -p public
+          touch public/.nojekyll
+
       - name: Build with Next.js 🏗️
         run: npx next build
-
-      - name: Create .nojekyll file and verify directories
-        run: |
-          pwd
-          ls -la
-          if [ -d ".next" ]; then
-            echo "Found .next directory"
-            ls -la .next/
-          fi
-          if [ -d "out" ]; then
-            echo "Found out directory"
-            ls -la out/
-          else
-            echo "Creating out directory"
-            mkdir -p out
-          fi
-          touch out/.nojekyll
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .next/static
+          path: out
 
   deploy:
     environment:
