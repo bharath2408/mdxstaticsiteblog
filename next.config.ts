@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: "/mdxstaticsiteblog/",
+  assetPrefix: "/mdxstaticsiteblog",
 };
 
 export default nextConfig;

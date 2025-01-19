@@ -147,7 +147,7 @@ const HeroCard: React.FC = () => {
         className="absolute inset-0 will-change-transform"
       >
         <Image
-          src="/images/hero.png"
+          src="/mdxstaticsiteblog/images/hero.png"
           alt="hero image"
           fill
           className="object-cover"
@@ -202,7 +202,7 @@ const HeroCard: React.FC = () => {
                            dark:bg-gray-700 relative overflow-hidden"
               >
                 <Image
-                  src="/images/hero.png" // Provide the path to the image
+                  src="/mdxstaticsiteblog/images/hero.png" // Provide the path to the image
                   alt="Hero Image" // Add a meaningful description for accessibility
                   width={1920} // Specify a width for the image
                   height={1080} // Specify a height for the image

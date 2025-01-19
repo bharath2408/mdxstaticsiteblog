@@ -14,7 +14,7 @@ export const posts: IPost[] = [
     author: "Robert Liu",
     date: "2024-02-28",
     category: "Blockchain",
-    thumbnail: "/images/thumbnails/green-coding.jpg",
+    thumbnail: "/mdxstaticsiteblog/images/thumbnails/green-coding.jpg",
   },
   {
     title: "Blockchain Beyond Cryptocurrency: Real-World Applications",
@@ -22,7 +22,7 @@ export const posts: IPost[] = [
     author: "Robert Liu",
     date: "2024-02-28",
     category: "Blockchain",
-    thumbnail: "/images/thumbnails/blockchain.jpg",
+    thumbnail: "/mdxstaticsiteblog/images/thumbnails/blockchain.jpg",
   },
   {
     title: "Cloud Computing: Architecture and Services Explained",
@@ -30,7 +30,7 @@ export const posts: IPost[] = [
     author: "Linda Garcia",
     date: "2024-04-18",
     category: "Cloud Computing",
-    thumbnail: "/images/thumbnails/cloud-computing.jpg",
+    thumbnail: "/mdxstaticsiteblog/images/thumbnails/cloud-computing.jpg",
   },
   {
     title: "CSS Grid: Modern Layout Techniques for Responsive Design",
@@ -38,7 +38,7 @@ export const posts: IPost[] = [
     author: "Alex Thompson",
     date: "2024-02-15",
     category: "CSS",
-    thumbnail: "/images/thumbnails/css-grid.jpg",
+    thumbnail: "/mdxstaticsiteblog/images/thumbnails/css-grid.jpg",
   },
   {
     title: "Cybersecurity in 2024: Protecting Your Digital Assets",
@@ -46,7 +46,7 @@ export const posts: IPost[] = [
     author: "Jason Wong",
     date: "2024-01-25",
     category: "Cybersecurity",
-    thumbnail: "/images/thumbnails/cybersecurity.jpg",
+    thumbnail: "/mdxstaticsiteblog/images/thumbnails/cybersecurity.jpg",
   },
   {
     title: "Getting Started with Web Development in 2024",
@@ -54,7 +54,7 @@ export const posts: IPost[] = [
     author: "Sarah Johnson",
     date: "2024-03-15",
     category: "Web Development",
-    thumbnail: "/images/thumbnails/web-development.jpg",
+    thumbnail: "/mdxstaticsiteblog/images/thumbnails/web-development.jpg",
   },
   {
     title: "Green Coding: Building Environmentally Conscious Web Applications",
@@ -62,7 +62,7 @@ export const posts: IPost[] = [
     author: "Emma Stewart",
     date: "2024-03-10",
     category: "Sustainability",
-    thumbnail: "/images/thumbnails/green-coding.jpg",
+    thumbnail: "/mdxstaticsiteblog/images/thumbnails/green-coding.jpg",
   },
   {
     title: "Machine Learning: A Beginner's Roadmap",
@@ -70,7 +70,7 @@ export const posts: IPost[] = [
     author: "Rachel Patel",
     date: "2024-03-22",
     category: "AI/ML",
-    thumbnail: "/images/thumbnails/machine-learning.jpg",
+    thumbnail: "/mdxstaticsiteblog/images/thumbnails/machine-learning.jpg",
   },
   {
     title: "Mastering React Hooks: A Comprehensive Guide",
@@ -78,7 +78,7 @@ export const posts: IPost[] = [
     author: "Michael Chen",
     date: "2024-02-20",
     category: "React",
-    thumbnail: "/images/thumbnails/react-hooks.jpg",
+    thumbnail: "/mdxstaticsiteblog/images/thumbnails/react-hooks.jpg",
   },
   {
     title: "Optimizing Next.js Applications for Maximum Performance",
@@ -86,7 +86,7 @@ export const posts: IPost[] = [
     author: "David Kim",
     date: "2024-04-05",
     category: "Performance",
-    thumbnail: "/images/thumbnails/nextjs-optimizing.jpg",
+    thumbnail: "/mdxstaticsiteblog/images/thumbnails/nextjs-optimizing.jpg",
   },
   {
     title: "Why TypeScript Will Transform Your JavaScript Development",
@@ -94,6 +94,6 @@ export const posts: IPost[] = [
     author: "Emily Rodriguez",
     date: "2024-01-10",
     category: "TypeScript",
-    thumbnail: "/images/thumbnails/typescript.jpg",
+    thumbnail: "/mdxstaticsiteblog/images/thumbnails/typescript.jpg",
   },
 ];

@@ -18,7 +18,11 @@ export default function Header() {
       <div className="flex items-center space-x-5">
         <Link href={"/"} className="flex space-x-2 items-center">
           <Image
-            src={theme === "light" ? "/light-union.svg" : "/dark-union.svg"}
+            src={
+              theme === "light"
+                ? "/mdxstaticsiteblog/light-union.svg"
+                : "/mdxstaticsiteblog/dark-union.svg"
+            }
             width={36}
             height={36}
             alt="logo"
@@ -44,7 +48,11 @@ export default function Header() {
           aria-label="Toggle theme"
         >
           <Image
-            src={theme === "light" ? "/light-toggle.svg" : "/dark-toggle.svg"}
+            src={
+              theme === "light"
+                ? "/mdxstaticsiteblog/light-toggle.svg"
+                : "/mdxstaticsiteblog/dark-toggle.svg"
+            }
             alt="theme toggle"
             width={48}
             height={28}
