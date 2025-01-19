@@ -33,10 +33,21 @@ jobs:
       - name: Build with Next.js 🏗️
         run: npx next build
 
+      - name: List directories 📂
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "\nDirectory contents:"
+          ls -la
+          echo "\nContents of .next (if exists):"
+          ls -la .next || echo ".next directory not found"
+          echo "\nContents of out (if exists):"
+          ls -la out || echo "out directory not found"
+
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: .next/
 
   deploy:
     environment:
