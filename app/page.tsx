@@ -3,8 +3,6 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroCard from "@/components/HeroCard";
 import { posts } from "@/posts";
-import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
   return (
