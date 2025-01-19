@@ -38,7 +38,7 @@ const DocSearch = () => {
     return () => {
       debouncedSearch.cancel();
     };
-  }, [query]);
+  }, [query, debouncedSearch]);
 
   // Scroll selected item into view
   useEffect(() => {
