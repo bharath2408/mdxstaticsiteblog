@@ -1,5 +1,5 @@
-# File: .github/workflows/publish.yml
 name: publish-to-github-pages
+
 on:
   push:
     branches:
@@ -36,7 +36,7 @@ jobs:
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: /.next
+          path: .next/ # Remove the leading slash
 
   deploy:
     environment:
