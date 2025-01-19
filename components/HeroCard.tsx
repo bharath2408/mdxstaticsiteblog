@@ -201,10 +201,13 @@ const HeroCard: React.FC = () => {
                 className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-200 
                            dark:bg-gray-700 relative overflow-hidden"
               >
-                <img
-                  src="/images/hero.png"
-                  alt="Author"
-                  className="object-cover w-full h-full"
+                <Image
+                  src="/images/hero.png" // Provide the path to the image
+                  alt="Hero Image" // Add a meaningful description for accessibility
+                  width={1920} // Specify a width for the image
+                  height={1080} // Specify a height for the image
+                  className="object-cover w-full h-full" // Add custom styles
+                  priority // Optional: Preload this image for performance
                 />
               </div>
               <div>
