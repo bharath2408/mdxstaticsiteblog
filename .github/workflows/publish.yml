@@ -68,7 +68,7 @@ jobs:
         with:
           path: ./out
 
-  deploy_main:
+  production:
     environment:
       name: github-pages-main
       url: ${{ steps.deployment.outputs.page_url }}
@@ -82,7 +82,7 @@ jobs:
         with:
           branch: main
 
-  deploy_test:
+  test:
     environment:
       name: github-pages-test
       url: https://bharath2408.github.io/mdxstaticsiteblog/test
