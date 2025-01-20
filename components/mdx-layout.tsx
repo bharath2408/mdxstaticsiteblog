@@ -4,7 +4,6 @@ import SyntaxHighlighter from "./SyntaxHighlighter";
 import Thumbnail from "./Thumbnail";
 
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
-  const isProduction = process.env.NODE_ENV === "production";
   return (
     <div>
       <Header />
