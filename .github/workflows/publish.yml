@@ -28,12 +28,10 @@ jobs:
             echo "manager=yarn" >> $GITHUB_OUTPUT
             echo "command=install" >> $GITHUB_OUTPUT
             echo "runner=yarn" >> $GITHUB_OUTPUT
-            exit 0
           elif [ -f "${{ github.workspace }}/package.json" ]; then
             echo "manager=npm" >> $GITHUB_OUTPUT
             echo "command=ci" >> $GITHUB_OUTPUT
             echo "runner=npx --no-install" >> $GITHUB_OUTPUT
-            exit 0
           else
             echo "Unable to determine package manager"
             exit 1
@@ -73,9 +71,12 @@ jobs:
       name: github-pages-test
       url: https://bharath2408.github.io/mdxstaticsiteblog/test
     runs-on: ubuntu-latest
-    needs: build
+    needs: build # Ensures the test job only runs after the build job completes
     if: github.ref == 'refs/heads/test' # Only deploy from the test branch
     steps:
+      - name: Download artifact
+        uses: actions/download-pages-artifact@v3
+
       - name: Deploy to GitHub Pages (Test)
         id: deployment
         uses: actions/deploy-pages@v4
@@ -85,11 +86,14 @@ jobs:
   production:
     environment:
       name: github-pages-main
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://bharath2408.github.io/mdxstaticsiteblog # Specify the main branch deployment URL
     runs-on: ubuntu-latest
-    needs: test # Run only after the test environment deployment completes
+    needs: test # Ensures production runs only after the test job completes successfully
     if: github.ref == 'refs/heads/main' # Only deploy from the main branch
     steps:
+      - name: Download artifact
+        uses: actions/download-pages-artifact@v3
+
       - name: Deploy to GitHub Pages (Main)
         id: deployment
         uses: actions/deploy-pages@v4
