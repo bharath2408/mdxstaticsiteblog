@@ -1,5 +1,6 @@
 "use client";
 import { gsap } from "gsap";
+import { CSSPlugin } from "gsap/CSSPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronDown, Clock, User } from "lucide-react";
 import Image from "next/image";
@@ -97,6 +98,7 @@ const HeroCard: React.FC = () => {
         start: "top top",
         end: "bottom top",
         scrub: true,
+        invalidateOnRefresh: false,
         onUpdate: (self) => {
           const progress = self.progress;
 
