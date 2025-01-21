@@ -186,7 +186,7 @@ const DocSearch = () => {
                               {result.title}
                             </h3>
                             <p className="mt-1 text-sm text-gray-500 truncate dark:text-gray-400">
-                              {result.category}
+                              {result.description}
                             </p>
                             <div className="mt-1">
                               <span className="inline-flex items-center px-2 py-0.5 text-xs font-medium text-gray-600 bg-gray-100 rounded dark:bg-gray-800 dark:text-gray-400">

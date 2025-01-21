@@ -26,6 +26,9 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   assetPrefix: "/mdxstaticsiteblog",
+  experimental: {
+    mdxRs: true,
+  },
 };
 
 const withMDX = createMDX({

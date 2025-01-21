@@ -18,110 +18,115 @@ const HeroCard: React.FC = () => {
   const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Create a single context for better performance
     const ctx = gsap.context(() => {
-      // Initial animations timeline
-      const tl = gsap.timeline();
+      // Force GPU acceleration for smoother animations
+      gsap.set([cardRef.current, imageWrapperRef.current, overlayRef.current], {
+        willChange: "transform",
+        backfaceVisibility: "hidden",
+      });
 
-      // Base overlay animation
-      tl.fromTo(
-        overlayRef.current,
-        { opacity: 0 },
-        { opacity: 0.3, duration: 1.5, ease: "ease.inOut" }
-      );
+      const tl = gsap.timeline({
+        defaults: {
+          duration: 1,
+          ease: "power2.out",
+        },
+      });
 
-      // Image animation
+      // Simplified overlay animation
+      tl.fromTo(overlayRef.current, { opacity: 0 }, { opacity: 0.3 });
+
+      // Simplified and optimized image animation
       tl.fromTo(
         imageWrapperRef.current,
-        { scale: 1.2, opacity: 0, filter: "grayscale(0)" },
-        { scale: 1, opacity: 1, duration: 2, ease: "ease.out" },
-        "-=1.5"
+        {
+          opacity: 0,
+          scale: 1.1, // Reduced scale for better performance
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          clearProps: "scale", // Clear transform after animation
+        },
+        "-=0.5" // Reduced overlap
       );
 
-      // Card animation
+      // Optimized card animation - removed complex transforms
       tl.fromTo(
         cardRef.current,
         {
-          x: "-100%",
+          x: "-50%",
           opacity: 0,
-          rotateY: -30,
-          transformPerspective: 1000,
         },
         {
           x: "0%",
           opacity: 1,
-          rotateY: 0,
-          duration: 1.5,
-          ease: "ease.out",
+          clearProps: "transform", // Clear transform after animation
         },
-        "-=1"
+        "-=0.5"
       );
 
-      // Text animations
+      // Batch text animations for better performance
+      const textElements = textContentRef.current?.children || [];
       tl.fromTo(
-        textContentRef.current?.children || [],
-        { y: 30, opacity: 0 },
+        textElements,
+        {
+          y: 20,
+          opacity: 0,
+        },
         {
           y: 0,
           opacity: 1,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "ease.out",
+          stagger: 0.1, // Reduced stagger time
+          clearProps: "transform",
         },
-        "-=1"
+        "-=0.3"
       );
 
-      // Scroll indicator
+      // Simplified scroll indicator animation
       tl.fromTo(
         scrollIndicatorRef.current,
-        { y: -20, opacity: 0 },
+        { y: -10, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 1,
-          ease: "ease.out",
           onComplete: () => {
+            // Lightweight bounce animation
             gsap.to(scrollIndicatorRef.current, {
-              y: 10,
+              y: 5,
               repeat: -1,
               yoyo: true,
-              duration: 1.2,
-              ease: "ease.inOut",
+              duration: 1,
+              ease: "sine.inOut", // Smoother, lighter easing
             });
           },
         }
       );
 
-      // Scroll animations
+      // Optimized scroll animation
       ScrollTrigger.create({
         trigger: containerRef.current,
         start: "top top",
         end: "bottom top",
-        scrub: true,
-        invalidateOnRefresh: false,
+        scrub: 1, // Added smoothing to scroll
         onUpdate: (self) => {
           const progress = self.progress;
 
-          // Grayscale effect on scroll
-          gsap.to(imageWrapperRef.current, {
-            filter: `grayscale(${progress * 100}%)`,
-            duration: 0,
-          });
+          // Batch updates in a requestAnimationFrame
+          requestAnimationFrame(() => {
+            // Simplified parallax effect
+            gsap.set(imageWrapperRef.current, {
+              y: progress * 50, // Reduced movement
+              filter: `grayscale(${progress * 100}%)`,
+            });
 
-          // Darken overlay
-          gsap.to(overlayRef.current, {
-            opacity: 0.3 + progress * 0.5,
-            duration: 0,
-          });
+            gsap.set(overlayRef.current, {
+              opacity: 0.3 + progress * 0.3,
+            });
 
-          // Parallax and fade for content
-          gsap.to(imageWrapperRef.current, {
-            y: progress * 100,
-            duration: 0,
-          });
-
-          gsap.to([cardRef.current, scrollIndicatorRef.current], {
-            opacity: 1 - progress * 2,
-            duration: 0,
+            gsap.set([cardRef.current, scrollIndicatorRef.current], {
+              opacity: 1 - progress * 1.5,
+            });
           });
         },
       });
