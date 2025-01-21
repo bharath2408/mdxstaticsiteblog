@@ -26,14 +26,14 @@ const HeroCard: React.FC = () => {
       tl.fromTo(
         overlayRef.current,
         { opacity: 0 },
-        { opacity: 0.3, duration: 1.5, ease: "power2.inOut" }
+        { opacity: 0.3, duration: 1.5, ease: "ease.inOut" }
       );
 
       // Image animation
       tl.fromTo(
         imageWrapperRef.current,
         { scale: 1.2, opacity: 0, filter: "grayscale(0)" },
-        { scale: 1, opacity: 1, duration: 2, ease: "power2.out" },
+        { scale: 1, opacity: 1, duration: 2, ease: "ease.out" },
         "-=1.5"
       );
 
@@ -51,7 +51,7 @@ const HeroCard: React.FC = () => {
           opacity: 1,
           rotateY: 0,
           duration: 1.5,
-          ease: "power3.out",
+          ease: "ease.out",
         },
         "-=1"
       );
@@ -65,7 +65,7 @@ const HeroCard: React.FC = () => {
           opacity: 1,
           duration: 0.8,
           stagger: 0.2,
-          ease: "power2.out",
+          ease: "ease.out",
         },
         "-=1"
       );
@@ -78,14 +78,14 @@ const HeroCard: React.FC = () => {
           y: 0,
           opacity: 1,
           duration: 1,
-          ease: "power2.out",
+          ease: "ease.out",
           onComplete: () => {
             gsap.to(scrollIndicatorRef.current, {
               y: 10,
               repeat: -1,
               yoyo: true,
               duration: 1.2,
-              ease: "power1.inOut",
+              ease: "ease.inOut",
             });
           },
         }

@@ -31,7 +31,7 @@ const BlogGrid: React.FC<BlogGridProps> = ({ posts }) => {
         duration: 0.8,
         stagger: {
           amount: 0.6,
-          ease: "power3.out",
+          ease: "ease.out",
         },
       });
 
@@ -45,12 +45,12 @@ const BlogGrid: React.FC<BlogGridProps> = ({ posts }) => {
           gsap.to(image, {
             scale: 1.05,
             duration: 0.3,
-            ease: "power2.out",
+            ease: "ease.out",
           });
           gsap.to(content, {
             y: -5,
             duration: 0.3,
-            ease: "power2.out",
+            ease: "ease.out",
           });
         });
 
@@ -59,12 +59,12 @@ const BlogGrid: React.FC<BlogGridProps> = ({ posts }) => {
           gsap.to(image, {
             scale: 1,
             duration: 0.3,
-            ease: "power2.out",
+            ease: "ease.out",
           });
           gsap.to(content, {
             y: 0,
             duration: 0.3,
-            ease: "power2.out",
+            ease: "ease.out",
           });
         });
       });
