@@ -71,7 +71,7 @@ jobs:
   production:
     environment:
       name: github-pages-main
-      url: "https://${{ github.repository_owner }}.github.io/mdxstaticsiteblog"
+      url: "https://bharathblog.com"
     runs-on: ubuntu-latest
     needs: build
     if: github.ref == 'refs/heads/main' # Only deploy from the main branch
